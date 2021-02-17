@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Config>
+  <Search>
+    <!--检索关键字-->
+    <keyWords>机密,部队</keyWords>
+  </Search>
+  <Server>
+    <!--服务端地址和端口-->
+    <host>127.0.0.1</host>
+    <port>8008</port>
+  </Server>
+  <File>
+    <!--是否开启文件落盘检索-->
+    <openWrite>true</openWrite>
+    <!--是否开启文件导出日志记录-->
+    <export>true</export>
+  </File>
+</Config>
