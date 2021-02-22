@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="Searcher.UserControls.UserControlMainPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Searcher.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="460" d:DesignWidth="700">
+    <UserControl.Resources></UserControl.Resources>
+    <Grid Style="{StaticResource themeBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.3*"/>
+                <RowDefinition Height="0.9*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="0" Margin="0,5">
+                <TextBlock DockPanel.Dock="Left" Width="90" Text="搜索关键字："/>
+                <StackPanel DockPanel.Dock="Right" Margin="5,0">
+                    <TextBox x:Name="keyWords" Height="25"/>
+                    <TextBlock Foreground="#f78a09" FontSize="10" Margin="0,5,0,0" Text="输入额外检索关键字，并以,分割"/>
+                </StackPanel>
+            </DockPanel >
+
+            <DockPanel Grid.Row="1" Margin="0,5">
+                <TextBlock Width="90" Text="搜索文件类型："/>
+                <WrapPanel >
+                    <CheckBox Style="{StaticResource customCheckbtn}">.txt</CheckBox>
+                    <CheckBox Style="{StaticResource customCheckbtn}">.pdf</CheckBox>
+                    <CheckBox Style="{StaticResource customCheckbtn}">.exl</CheckBox>
+                </WrapPanel>
+            </DockPanel >
+
+            <DockPanel Grid.Row="2" Margin="0,5">
+                <TextBlock Width="90"  Text="搜索文件位置："/>
+                <StackPanel>
+                    <WrapPanel>
+                        <RadioButton Style="{StaticResource customRadiobtn}">磁盘</RadioButton>
+                        <RadioButton Style="{StaticResource customRadiobtn}">自定义</RadioButton>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <ListBox  Margin="5">
+                            <ListBoxItem>1111111</ListBoxItem>
+                            <ListBoxItem>2222222</ListBoxItem>
+                        </ListBox>
+                        <Button Template="{StaticResource customBtn}" Background="#f78a09" Width="120" Height="30"
+                            FontFamily="/Searcher;component/Fonts/#iconfont"  Content="&#xe664;选择文件路径"/>
+                    </WrapPanel>
+                </StackPanel>
+            </DockPanel>
+
+            <WrapPanel Grid.Row="3" HorizontalAlignment="Right">
+                <Button Template="{StaticResource customBtn}" Background="#515151" Width="80" Height="30"
+                    FontFamily="/Searcher;component/Fonts/#iconfont" Content="&#xe67b;重置"/>
+                <Button Template="{StaticResource customBtn}" Background="#f78a09" Width="80" Height="30"
+                    FontFamily="/Searcher;component/Fonts/#iconfont" Content="&#xe67d;检索"/>
+            </WrapPanel>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="#515151">
+            
+        </Grid>
+    </Grid>
+</UserControl>

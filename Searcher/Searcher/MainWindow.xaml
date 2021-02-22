@@ -4,63 +4,45 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Searcher"
+        xmlns:userControls="clr-namespace:Searcher.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="700" FontSize="14" WindowStyle="None" ResizeMode="NoResize"  FontFamily="微软雅黑" Background="#FF262626" Foreground="White" >
-    <Grid>
+        Title="MainWindow" Height="500" Width="700" FontSize="14" WindowStyle="None" ResizeMode="NoResize">
+    <Window.Resources>
+        <ControlTemplate x:Key="menuBtn">
+            <Border x:Name="_menuBtn" Style="{StaticResource themeBackground}">
+                <TextBlock FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Text="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Content}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="_menuBtn" Property="Background" Value="#f78a09"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid Style="{StaticResource themeBackground}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.6*"/>
-            <RowDefinition Height="8*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
+        <!--菜单-->
         <DockPanel LastChildFill="False">
-            <Menu Background="#FF262626" Foreground="White" VerticalAlignment="Center" DockPanel.Dock="Left">
-                <MenuItem Header="文件">
-                    <MenuItem Background="#FF262626" Foreground="White" Header="设置" BorderBrush="{x:Null}"/>
-                </MenuItem>
-            </Menu>
-            <WrapPanel DockPanel.Dock="Right" VerticalAlignment="Center" Margin="0,0,5,0">
-                <Button>X</Button>
+            <WrapPanel DockPanel.Dock="Left" >
+                <TextBlock FontFamily="/Searcher;component/Fonts/#iconfont" Text="&#xe67d;" FontSize="25" Foreground="#f78a09"
+                           Padding="8,5" VerticalAlignment="Center" Width="35" Height="36" FontWeight="Bold"/>
+                <Button  Template="{StaticResource menuBtn}" Width="50" Content="文件" Height="36"/>
+            </WrapPanel>
+            
+            <WrapPanel DockPanel.Dock="Right" VerticalAlignment="Center">
+                <Button Template="{StaticResource menuBtn}" Width="36" Height="36" FontFamily="/Searcher;component/Fonts/#iconfont" Content="&#xe67a;"/>
+                <Button x:Name="closeBtn" Template="{StaticResource menuBtn}" Width="36" Height="36" Click="closeBtn_Click"
+                        FontFamily="/Searcher;component/Fonts/#iconfont" Content="&#xe668;"/>
             </WrapPanel>
         </DockPanel>
-        <Grid Grid.Row="1" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.5*"/>
-                <ColumnDefinition Width="8*"/>
-            </Grid.ColumnDefinitions>
-            
-            <TextBlock Margin="5" Text="搜索关键字："/>
-            <StackPanel Grid.Row="0" Grid.Column="1" Margin="5">
-                <TextBox x:Name="keyWords"/>
-                <TextBlock Foreground="#ff6808" FontSize="10" Margin="0,5,0,0" Text="输入额外检索关键字，并以,分割"/>
-            </StackPanel>
 
-            <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="搜索文件类型："/>
-            <WrapPanel Grid.Row="1" Grid.Column="1" Margin="5">
-                <CheckBox>.txt</CheckBox>
-                <CheckBox>.pdf</CheckBox>
-                <CheckBox>.exl</CheckBox>
-            </WrapPanel>
-
-            <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" Text="搜索文件位置："/>
-            <StackPanel Grid.Row="2" Grid.Column="1" Margin="5">
-                <WrapPanel>
-                    <RadioButton>磁盘</RadioButton>
-                    <RadioButton>自定义</RadioButton>
-                </WrapPanel>
-                <WrapPanel>
-                    <ListBox  Margin="5">
-                        <ListBoxItem>1111111</ListBoxItem>
-                        <ListBoxItem>2222222</ListBoxItem>
-                    </ListBox>
-                    <Button Width="110" Height="40" Background="#e59101" Foreground="White"  Margin="5">选择文件路径
-                    </Button>
-                </WrapPanel>
-            </StackPanel>
+        <Grid Grid.Row="1">
+            <userControls:UserControlMainPage/>
         </Grid>
+
     </Grid>
 </Window>

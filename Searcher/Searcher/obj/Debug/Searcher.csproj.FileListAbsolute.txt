@@ -1,7 +1,6 @@
 D:\Code\JoyCode\Searcher\Searcher\Searcher\bin\Debug\Searcher.exe.config
 D:\Code\JoyCode\Searcher\Searcher\Searcher\bin\Debug\Searcher.exe
 D:\Code\JoyCode\Searcher\Searcher\Searcher\bin\Debug\Searcher.pdb
-D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Searcher.csprojAssemblyReference.cache
 D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\MainWindow.g.cs
 D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\App.g.cs
 D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Searcher_MarkupCompile.cache
@@ -13,3 +12,7 @@ D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Searcher.csproj.GenerateRes
 D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Searcher.csproj.CoreCompileInputs.cache
 D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Searcher.exe
 D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Searcher.pdb
+D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\App.baml
+D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\UserControls\UserControlMainPage.g.cs
+D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\UserControls\UserControlMainPage.baml

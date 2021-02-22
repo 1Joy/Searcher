@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Searcher
+namespace Searcher.UserControls
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// UserControlMainPage.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UserControlMainPage : UserControl
     {
-        public MainWindow()
+        public UserControlMainPage()
         {
             InitializeComponent();
-        }
-
-        private void closeBtn_Click(object sender, RoutedEventArgs e)
-        {
-            base.Close();
         }
     }
 }
