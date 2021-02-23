@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="Searcher.UserControls.UserControlFilePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Searcher.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="460" d:DesignWidth="700">
+    <Grid Style="{StaticResource themeBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="8*"/>
+        </Grid.ColumnDefinitions>
+        <Grid >
+            
+        </Grid>
+        <Grid Grid.Column="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel  Grid.Row="0">
+                <StackPanel>
+                    <TextBlock Style="{StaticResource h1}" Text="服务端配置"/>
+                    <DockPanel Margin="0,15,0,0">
+                        <TextBlock DockPanel.Dock="Left">服务端地址：</TextBlock>
+                        <TextBox x:Name="serverHost" DockPanel.Dock="Right"/>
+                    </DockPanel>
+                    <DockPanel Margin="0,5,0,0">
+                        <TextBlock DockPanel.Dock="Left">服务端端口：</TextBlock>
+                        <TextBox x:Name="serverPort" DockPanel.Dock="Right"/>
+                    </DockPanel>
+                </StackPanel>
+
+                <StackPanel Margin="0,20,0,0">
+                    <TextBlock Style="{StaticResource h1}" Text="文件监视配置"/>
+                    <DockPanel Margin="0,15,0,0">
+                        <TextBlock DockPanel.Dock="Left">是否打开文件写盘监视：</TextBlock>
+                        <WrapPanel x:Name="isOpenWrite" DockPanel.Dock="Right">
+                            <RadioButton Style="{StaticResource customRadiobtn}">打开</RadioButton>
+                            <RadioButton Style="{StaticResource customRadiobtn}">关闭</RadioButton>
+                        </WrapPanel>
+                    </DockPanel>
+                    <DockPanel Margin="0,5,0,0">
+                        <TextBlock DockPanel.Dock="Left">是否打开文件导出监视：</TextBlock>
+                        <WrapPanel x:Name="isOpenExport" DockPanel.Dock="Right">
+                            <RadioButton Style="{StaticResource customRadiobtn}">打开</RadioButton>
+                            <RadioButton Style="{StaticResource customRadiobtn}">关闭</RadioButton>
+                        </WrapPanel>
+                    </DockPanel>
+                </StackPanel>
+            </StackPanel>
+            <WrapPanel Grid.Row="1" HorizontalAlignment="Right" Margin="0,10,0,5">
+                <Button Template="{StaticResource customBtn}" Background="#515151" Width="70" Height="30" Content="取消"/>
+                <Button Template="{StaticResource customBtn}" Background="#f78a09" Width="70" Height="30" Content="保存"/>
+            </WrapPanel>
+        </Grid>
+    </Grid>
+</UserControl>

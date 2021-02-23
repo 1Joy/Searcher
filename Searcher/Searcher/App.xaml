@@ -12,11 +12,88 @@
         <Style x:Key="customCheckbtn" TargetType="{x:Type CheckBox}">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Margin" Value="5,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <DockPanel ToolTip="{TemplateBinding Content}" LastChildFill="False" Width="{TemplateBinding Width}">
+                            <TextBlock DockPanel.Dock="Left" x:Name="_checkImg" Foreground="White" Text="&#xe63e;"
+                                       FontFamily="/Searcher;component/Fonts/#iconfont" VerticalAlignment="Center"/>
+                            <TextBlock DockPanel.Dock="Right" Margin="3,0,0,0" VerticalAlignment="Center" 
+                                       Text="{TemplateBinding Content}"/>
+                        </DockPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="_checkImg" Property="Text" Value="&#xedaf;"/>
+                                <Setter TargetName="_checkImg" Property="Foreground" Value="#f78a09"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <Style x:Key="customRadiobtn" TargetType="{x:Type RadioButton}">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Margin" Value="5,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <DockPanel ToolTip="{TemplateBinding Content}" LastChildFill="False" Width="{TemplateBinding Width}">
+                            <TextBlock DockPanel.Dock="Left" x:Name="_radioImg" Foreground="White" Text="&#xe66a;"
+                                       FontFamily="/Searcher;component/Fonts/#iconfont" VerticalAlignment="Center"/>
+                            <TextBlock DockPanel.Dock="Right" Margin="3,0,0,0" VerticalAlignment="Center" 
+                                       Text="{TemplateBinding Content}"/>
+                        </DockPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="_radioImg" Property="Text" Value="&#xe66b;"/>
+                                <Setter TargetName="_radioImg" Property="Foreground" Value="#f78a09"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border x:Name="border" CornerRadius="0" Margin="1" BorderBrush="#868686"
+                                        BorderThickness="0,0,0,0.2">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                            Margin="10,0,0,0" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#f78a09" />
+                                <Setter TargetName="border" Property="BorderThickness" Value="4,0,0,0.5" />
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True" />
+                                    <Condition Property="IsSelected" Value="False" />
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.Setters>
+                                    <Setter TargetName="border" Property="Background" Value="#f78a09" />
+                                    <Setter TargetName="border" Property="BorderThickness" Value="0,0,0,0.5" />
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="h1" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
         </Style>
 
         <ControlTemplate x:Key="customBtn">

@@ -43,14 +43,29 @@
                         <RadioButton Style="{StaticResource customRadiobtn}">磁盘</RadioButton>
                         <RadioButton Style="{StaticResource customRadiobtn}">自定义</RadioButton>
                     </WrapPanel>
-                    <WrapPanel>
-                        <ListBox  Margin="5">
-                            <ListBoxItem>1111111</ListBoxItem>
-                            <ListBoxItem>2222222</ListBoxItem>
-                        </ListBox>
-                        <Button Template="{StaticResource customBtn}" Background="#f78a09" Width="120" Height="30"
-                            FontFamily="/Searcher;component/Fonts/#iconfont"  Content="&#xe664;选择文件路径"/>
-                    </WrapPanel>
+                    <Grid x:Name="filePath" Margin="5,10">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="8*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <ListBox Grid.Column="0" Height="200" Background="#515151" BorderThickness="0">
+                                <ListBoxItem>2222222</ListBoxItem>
+                                <ListBoxItem>2222222</ListBoxItem>
+                                <ListBoxItem>2222222</ListBoxItem>
+                                <ListBoxItem>2222222</ListBoxItem>
+                                <ListBoxItem>2222222</ListBoxItem>
+                                <ListBoxItem>2222222</ListBoxItem>
+                                <ListBoxItem>2222222</ListBoxItem>
+                            </ListBox>
+                            <StackPanel Grid.Column="1">
+                                <Button Template="{StaticResource customBtn}" Background="#f78a09" Width="120" Height="30"
+                                FontFamily="/Searcher;component/Fonts/#iconfont"  Content="&#xe664;选择文件路径"/>
+                                <Button Template="{StaticResource customBtn}" Background="#515151" Width="120" Height="30"
+                                FontFamily="/Searcher;component/Fonts/#iconfont" Margin="0,5"  Content="&#xe67b;清空文件路径"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
                 </StackPanel>
             </DockPanel>
 
@@ -63,7 +78,7 @@
         </Grid>
 
         <Grid Grid.Row="1" Background="#515151">
-            
+
         </Grid>
     </Grid>
 </UserControl>

@@ -30,7 +30,8 @@
             <WrapPanel DockPanel.Dock="Left" >
                 <TextBlock FontFamily="/Searcher;component/Fonts/#iconfont" Text="&#xe67d;" FontSize="25" Foreground="#f78a09"
                            Padding="8,5" VerticalAlignment="Center" Width="35" Height="36" FontWeight="Bold"/>
-                <Button  Template="{StaticResource menuBtn}" Width="50" Content="文件" Height="36"/>
+                <Button  Template="{StaticResource menuBtn}" Width="50" FontFamily="/Searcher;component/Fonts/#iconfont" Content="&#xe678;"
+                         FontSize="20" Height="36"/>
             </WrapPanel>
             
             <WrapPanel DockPanel.Dock="Right" VerticalAlignment="Center">
@@ -40,8 +41,9 @@
             </WrapPanel>
         </DockPanel>
 
-        <Grid Grid.Row="1">
-            <userControls:UserControlMainPage/>
+        <Grid x:Name="contentPage" Grid.Row="1">
+            <userControls:UserControlMainPage x:Name="mainPage" Visibility="{Binding MainPageVisibility}"/>
+            <!--<userControls:UserControlFilePage x:Name="filePage" Visibility="{Binding FilePageVisibility}"/>-->
         </Grid>
 
     </Grid>
