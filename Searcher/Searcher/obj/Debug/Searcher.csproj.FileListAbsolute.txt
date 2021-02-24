@@ -18,3 +18,4 @@ D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Searcher.csproj.GenerateRes
 D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Searcher.csproj.CoreCompileInputs.cache
 D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Searcher.exe
 D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Searcher.pdb
+D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Searcher.csprojAssemblyReference.cache
