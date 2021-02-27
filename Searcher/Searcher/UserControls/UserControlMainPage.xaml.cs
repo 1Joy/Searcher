@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Searcher.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace Searcher.UserControls
         public UserControlMainPage()
         {
             InitializeComponent();
+            DataContext = new UCMainPageViewModel();
         }
     }
 }

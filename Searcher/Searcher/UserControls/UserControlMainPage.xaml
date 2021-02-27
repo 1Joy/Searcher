@@ -22,7 +22,7 @@
             <DockPanel Grid.Row="0" Margin="0,5">
                 <TextBlock DockPanel.Dock="Left" Width="90" Text="搜索关键字："/>
                 <StackPanel DockPanel.Dock="Right" Margin="5,0">
-                    <TextBox x:Name="keyWords" Height="25"/>
+                    <TextBox Style="{StaticResource customTextbox}" x:Name="keyWords" Height="25"/>
                     <TextBlock Foreground="#f78a09" FontSize="10" Margin="0,5,0,0" Text="输入额外检索关键字，并以,分割"/>
                 </StackPanel>
             </DockPanel >
@@ -39,17 +39,32 @@
             <DockPanel Grid.Row="2" Margin="0,5">
                 <TextBlock Width="90"  Text="搜索文件位置："/>
                 <StackPanel>
-                    <WrapPanel>
-                        <RadioButton Style="{StaticResource customRadiobtn}">磁盘</RadioButton>
-                        <RadioButton Style="{StaticResource customRadiobtn}">自定义</RadioButton>
+                    <WrapPanel x:Name="searchLocationBox">
+                        <RadioButton x:Name="searchDisk" Style="{StaticResource customRadiobtn}" GroupName="searchLocation">磁盘</RadioButton>
+                        <RadioButton x:Name="searchCustom" Style="{StaticResource customRadiobtn}" GroupName="searchLocation">自定义</RadioButton>
                     </WrapPanel>
                     <Grid x:Name="filePath" Margin="5,10">
-                        <Grid >
+                        <Grid Visibility="{Binding DiskSelectPanelVisibility}">
+                            <ListBox ItemsSource="{Binding DiskList}" 
+                                     Height="40" Background="#333333" BorderThickness="0.5" BorderBrush="#FF939393">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel IsItemsHost="True"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <CheckBox Style="{StaticResource customCheckbtn}" Content="{Binding Name}"/>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+                        <Grid Visibility="{Binding FilePathselectPanelVisibility}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="8*"/>
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
-                            <ListBox Grid.Column="0" Height="200" Background="#333333" BorderThickness="0.5" BorderBrush="#FF939393">
+                            <ListBox Grid.Column="0" Style="{StaticResource customListBox}" Height="200" Background="#333333" BorderThickness="0.5" BorderBrush="#FF939393">
                                 <ListBoxItem>2222222</ListBoxItem>
                                 <ListBoxItem>2222222</ListBoxItem>
                                 <ListBoxItem>2222222</ListBoxItem>
