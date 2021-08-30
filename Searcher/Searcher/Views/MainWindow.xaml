@@ -1,0 +1,20 @@
+﻿<Window x:Class="Searcher.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="{Binding Title}" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Background="{DynamicResource TBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" LastChildFill="False" MouseLeftButtonDown="DockPanel_MouseLeftButtonDown">
+            <WrapPanel DockPanel.Dock="Right">
+                <Button Style="{DynamicResource TransparentButtom}" Width="40" Height="30" Content="&#xe67a;"/>
+                <Button Style="{DynamicResource TransparentButtom}" Width="40" Height="30" Content="&#xe668;"/>
+            </WrapPanel>
+        </DockPanel>
+        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+    </Grid>
+</Window>

@@ -1,36 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using Prism.Mvvm;
 
 namespace Searcher.ViewModels
 {
-    public class MainWindowViewModel:NotificationObject
+    public class MainWindowViewModel : BindableBase
     {
-        private Visibility mainPageVisibility;
-
-        public Visibility MainPageVisibility
+        private string _title = "Prism Application";
+        public string Title
         {
-            get { return mainPageVisibility; }
-            set {
-                mainPageVisibility = value;
-                RaisePrepertyChange("MainPageVisibility");
-            }
+            get { return _title; }
+            set { SetProperty(ref _title, value); }
         }
 
-        private Visibility filePageVisibility;
-
-        public Visibility FilePageVisibility
+        public MainWindowViewModel()
         {
-            get { return filePageVisibility; }
-            set {
-                filePageVisibility = value;
-                RaisePrepertyChange("FilePageVisibility");
-            }
+
         }
-
-
     }
 }

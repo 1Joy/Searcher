@@ -1,0 +1,62 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Code\\JoyCode\\Searcher\\Searcher\\Searcher\\Searcher.csproj": {}
+  },
+  "projects": {
+    "D:\\Code\\JoyCode\\Searcher\\Searcher\\Searcher\\Searcher.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Code\\JoyCode\\Searcher\\Searcher\\Searcher\\Searcher.csproj",
+        "projectName": "Searcher",
+        "projectPath": "D:\\Code\\JoyCode\\Searcher\\Searcher\\Searcher\\Searcher.csproj",
+        "packagesPath": "C:\\Users\\JOY\\.nuget\\packages\\",
+        "outputPath": "D:\\Code\\JoyCode\\Searcher\\Searcher\\Searcher\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "D:\\安装\\DEV\\Offline Packages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\JOY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\安装\\DEV\\System\\Components\\Packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "Prism.DryIoc": {
+              "target": "Package",
+              "version": "[8.0.0.1909, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
