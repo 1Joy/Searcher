@@ -2,7 +2,11 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <SolidColorBrush x:Key="TBackground" Color="#1f2623"/>
     <SolidColorBrush x:Key="TForeground" Color="White"/>
+    <SolidColorBrush x:Key="TForeBackground" Color="#70887d"/>
     <SolidColorBrush x:Key="FocuseColor" Color="#92b3a5"/>
+    <SolidColorBrush x:Key="TPrimaryColor" Color="#69a794"/>
+    <SolidColorBrush x:Key="TGrayColor" Color="#c0c4c3"/>
     <SolidColorBrush x:Key="BorderColor" Color="#69a794"/>
+    <SolidColorBrush x:Key="BorderColor1" Color="#c0c4c3"/>
     <FontFamily x:Key="MyFontFamily">pack://application:,,,/Searcher;component/Asset/Fonts/#iconfont</FontFamily>
 </ResourceDictionary>

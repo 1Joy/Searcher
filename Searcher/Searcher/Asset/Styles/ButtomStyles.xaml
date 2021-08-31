@@ -3,13 +3,13 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Searcher;component/Asset/Styles/ThemeStyles.xaml"/>
         <ResourceDictionary>
-            <Style x:Key="DefauleButtom" TargetType="{x:Type Button}">
+            <Style x:Key="DefauleButton" TargetType="{x:Type Button}">
                 <Setter Property="Foreground" Value="{DynamicResource TForeground}"/>
                 <Setter Property="FontFamily" Value="{DynamicResource MyFontFamily}"/>
                 <Setter Property="FontSize" Value="16"/>
             </Style>
 
-            <Style x:Key="TransparentButtom" TargetType="{x:Type Button}" BasedOn="{StaticResource DefauleButtom}">
+            <Style x:Key="TransparentButton" TargetType="{x:Type Button}" BasedOn="{StaticResource DefauleButton}">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
@@ -20,6 +20,24 @@
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" TargetName="_border" Value="{DynamicResource FocuseColor}"/>
                                     <Setter Property="BorderBrush" TargetName="_border" Value="{DynamicResource BorderColor}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="PrimaryButton" TargetType="{x:Type Button}" BasedOn="{StaticResource DefauleButton}">
+                <!--<Setter Property="Background" Value="{DynamicResource FocuseColor}"/>-->
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="_border" Background="{DynamicResource TPrimaryColor}" BorderThickness="0" CornerRadius="5">
+                                <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" TargetName="_border" Value="{DynamicResource FocuseColor}"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>

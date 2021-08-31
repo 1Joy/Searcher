@@ -27,3 +27,4 @@ D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Views\UCViewMain.g.cs
 D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Searcher.csprojAssemblyReference.cache
 D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Asset\Styles\ThemeStyles.baml
 D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Asset\Styles\ButtomStyles.baml
+D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Asset\Styles\InputBoxStyles.baml

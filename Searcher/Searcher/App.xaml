@@ -8,6 +8,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/Searcher;component/Asset/Styles/ThemeStyles.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/Searcher;component/Asset/Styles/ButtomStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Searcher;component/Asset/Styles/InputBoxStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

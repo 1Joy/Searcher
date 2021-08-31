@@ -1,0 +1,73 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Searcher;component/Asset/Styles/ThemeStyles.xaml"/>
+        <ResourceDictionary>
+            <Style x:Key="BaseInputBox" TargetType="{x:Type TextBox}">
+                <Setter Property="CaretBrush" Value="{DynamicResource TForeground}"/>
+                <Setter Property="Foreground" Value="{DynamicResource TForeground}"/>
+            </Style>
+            <!--带图标的输入框-->
+            <Style x:Key="InputBoxWithIcon" TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseInputBox}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TextBox">
+                            <Border x:Name="_border" BorderBrush="{DynamicResource BorderColor1}" BorderThickness="1.2" CornerRadius="5" Padding="4"
+                                    Background="{DynamicResource TForeBackground}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" FontFamily="{DynamicResource MyFontFamily}" 
+                                               Foreground="{DynamicResource TForeground}"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                                               Text="{Binding Tag,RelativeSource={RelativeSource AncestorType=TextBox}}"/>
+                                    <ScrollViewer Grid.Column="1" x:Name="PART_ContentHost" Focusable="True" VerticalAlignment="Center"
+                                                  HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
+                                                  />
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="BorderBrush" TargetName="_border" Value="{DynamicResource TPrimaryColor}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="InputBoxWithPlaceHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseInputBox}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TextBox">
+                            <Border x:Name="_border" BorderBrush="{DynamicResource BorderColor1}" BorderThickness="1.2" CornerRadius="5" Padding="4"
+                                    Background="{DynamicResource TForeBackground}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" x:Name="_placeHolder" Visibility="Collapsed" VerticalAlignment="Center"
+                                               Foreground="{DynamicResource TGrayColor}"
+                                               Text="{Binding Tag,RelativeSource={RelativeSource AncestorType=TextBox}}"/>
+                                    <ScrollViewer Grid.Column="0" x:Name="PART_ContentHost" Focusable="False" VerticalAlignment="Center"
+                                                  HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
+                                                  />
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="BorderBrush" TargetName="_border" Value="{DynamicResource TPrimaryColor}"/>
+                                </Trigger>
+                                <DataTrigger Binding="{Binding Text,RelativeSource={RelativeSource Mode=Self}}" Value="">
+                                    <Setter Property="Visibility" TargetName="_placeHolder" Value="Visible"/>
+                                </DataTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
