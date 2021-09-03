@@ -39,6 +39,9 @@
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" TargetName="_border" Value="{DynamicResource FocuseColor}"/>
                                 </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Background" TargetName="_border" Value="{DynamicResource TGrayColor}"/>
+                                </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </Setter.Value>

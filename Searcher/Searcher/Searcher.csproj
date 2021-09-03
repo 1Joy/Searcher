@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Core\Searcher\BaseSearcher.cs" />
+    <Compile Include="Core\SearchExecutor.cs" />
+    <Compile Include="Models\MainWindowModel.cs" />
     <Compile Include="ViewModels\UCViewMainViewModel.cs" />
     <Compile Include="Views\UCViewMain.xaml.cs">
       <DependentUpon>UCViewMain.xaml</DependentUpon>

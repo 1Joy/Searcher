@@ -1,12 +1,30 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using Searcher.Models;
+using System;
 using System.Windows;
 
 namespace Searcher.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
-        public DelegateCommand<string> WindowControlCommand { get; private set; }
+        public DelegateCommand<string> WindowControlCommand { get; set; }
+        public DelegateCommand SearchCommand { get; set; }
+
+        /// <summary>
+        /// 搜索的内容
+        /// </summary>
+        private string _searchInput;
+        public string SearchInput
+        {
+            get { return _searchInput; }
+            set
+            {
+                _searchInput = value;
+                RaisePropertyChanged();
+                
+            }
+        }
 
         /// <summary>
         /// 当前窗体显示状态
@@ -46,7 +64,10 @@ namespace Searcher.ViewModels
         private void InitCommand()
         {
             WindowControlCommand = new DelegateCommand<string>(WindowControl);
+            SearchCommand = new DelegateCommand(StartSearch);
         }
+
+        
 
         /// <summary>
         /// 控制窗体显示，最小化，最大化
@@ -68,6 +89,19 @@ namespace Searcher.ViewModels
                 CurrentWindowState = WindowState.Normal;
                 MaxBtnContent = "\ue62b";
             }
+        }
+
+        /// <summary>
+        /// 开始检索
+        /// </summary>
+        private void StartSearch()
+        {
+            if (string.IsNullOrEmpty(SearchInput) || string.IsNullOrWhiteSpace(SearchInput))
+            {
+                return;
+            }
+
+            
         }
     }
 }

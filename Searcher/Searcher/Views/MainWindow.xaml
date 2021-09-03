@@ -10,8 +10,9 @@
             <RowDefinition/>
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" BorderBrush="{DynamicResource BorderColor1}" BorderThickness="0,0,0,1">
-            <DockPanel  LastChildFill="False" MouseLeftButtonDown="DockPanel_MouseLeftButtonDown">
+        <Border Grid.Row="0" BorderBrush="{DynamicResource BorderColor1}" BorderThickness="0,0,0,1" Background="{DynamicResource TBackground}"
+                MouseLeftButtonDown="DockPanel_MouseLeftButtonDown">
+            <DockPanel  LastChildFill="False">
                 <WrapPanel DockPanel.Dock="Right">
                     <Button Style="{DynamicResource TransparentButton}" Width="40" Height="30"
                         Command="{Binding WindowControlCommand}" CommandParameter="min" Content="&#xe67a;"/>
@@ -25,7 +26,7 @@
         <Grid Grid.Row="1" Margin="10,10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="5"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <!--输入-->
@@ -36,13 +37,14 @@
                     <ColumnDefinition Width="5"/>
                     <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Foreground="{DynamicResource TForeground}" HorizontalAlignment="Center" VerticalAlignment="Center"
-                           Text="检索内容："/>
-                <TextBox Grid.Column="1" Style="{DynamicResource InputBoxWithIcon}" Tag="&#xe67d;"/>
-                <Button Grid.Column="3" Style="{DynamicResource PrimaryButton}" Content="&#xe67d;搜索"/>
+                <TextBlock Grid.Column="0" Foreground="{DynamicResource TForeground}" HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" Text="搜索内容："/>
+                <TextBox Grid.Column="1" Style="{DynamicResource InputBoxWithIcon}" Text="{Binding SearchInput}"
+                         Tag="&#xe67d;"/>
+                <Button Grid.Column="3" Style="{DynamicResource PrimaryButton}" Command="{Binding SearchCommand}" 
+                        Content="&#xe67d;搜索"/>
             </Grid>
             <Grid Grid.Row="2">
-                <TextBox Style="{DynamicResource InputBoxWithPlaceHolder}" Height="40" Tag="请输入内容"/>
             </Grid>
         </Grid>
 
