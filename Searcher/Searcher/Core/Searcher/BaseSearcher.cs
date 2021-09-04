@@ -10,27 +10,70 @@ namespace Searcher.Core.Searcher
     /// <summary>
     /// 检索父类
     /// </summary>
-    public class BaseSearcher
+    public abstract class BaseSearcher
     {
+        public delegate void ReportFindFileDelegate(string fileFullPath);
+        public ReportFindFileDelegate ReportFindFileEvent;
+
+        public EventHandler FindNextEvent;
+
         /// <summary>
         /// 检索类型
         /// </summary>
         protected string Tag { get; set; }
 
         /// <summary>
+        /// 检索的文件后缀名,如果有多个，就用竖线分开；如：.doc|.docx
+        /// </summary>
+        public string FileSuffixs { get; protected set; }
+
+        protected BaseSearcher(string tag,string suffixs)
+        {
+            Tag = tag;
+            FileSuffixs = suffixs;
+        }
+
+        /// <summary>
         /// 开始搜索
         /// </summary>
         /// <param name="targetStr">目标文字</param>
-        /// <param name="paths">搜索的路径</param>
-        public void StartSearch(string targetStr,string[] paths)
+        /// <param name="fileNames">搜索的文件名称</param>
+        public void StartSearch(string targetStr, List<string> fileNames)
         {
-            foreach (var path in paths)
+            //先过滤
+            fileNames = FilterFileSuffix(fileNames);
+            foreach (var item in fileNames)
             {
-                if (PathIsDirectory(path))
+                if (!File.Exists(item))
+                    continue;
+                if(SearchByTargetStr(targetStr, item))
                 {
-                    //是文件夹就读取文件
+                    ReportFindFileEvent?.Invoke(item);
                 }
+                FindNextEvent?.Invoke(this,EventArgs.Empty);
             }
+        }
+
+        /// <summary>
+        /// 过滤目录
+        /// </summary>
+        /// <param name="fileNames"></param>
+        /// <returns></returns>
+        protected abstract List<string> FilterFileSuffix(List<string> fileNames);
+
+        /// <summary>
+        /// 根据关键字搜索文件名和文件内容
+        /// </summary>
+        /// <param name="targetStr">搜索关键字</param>
+        /// <param name="fileFullPath">文件名</param>
+        /// <returns>true：搜索到了关键字</returns>
+        protected virtual bool SearchByTargetStr(string targetStr, string fileFullPath)
+        {            
+            //搜索文件名称里面是否包含关键字
+            string name = Path.GetFileName(fileFullPath);
+            if (name.Contains(targetStr))
+                return true;
+            return false;
         }
 
         /// <summary>

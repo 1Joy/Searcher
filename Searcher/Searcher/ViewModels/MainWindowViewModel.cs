@@ -1,7 +1,9 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using Searcher.Core;
 using Searcher.Models;
 using System;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace Searcher.ViewModels
@@ -10,6 +12,8 @@ namespace Searcher.ViewModels
     {
         public DelegateCommand<string> WindowControlCommand { get; set; }
         public DelegateCommand SearchCommand { get; set; }
+
+        public SearchExecutor SearchExecutorInstance { get; set; } = SearchExecutor.SearchExecutorInstance;
 
         /// <summary>
         /// 搜索的内容
@@ -21,10 +25,22 @@ namespace Searcher.ViewModels
             set
             {
                 _searchInput = value;
-                RaisePropertyChanged();
-                
+                RaisePropertyChanged();                
             }
         }
+
+        /// <summary>
+        /// 搜索按钮能否被点击
+        /// </summary>
+        private bool _canSearch = true;
+        public bool CanSearch
+        {
+            get { return _canSearch; }
+            set { _canSearch = value;
+                RaisePropertyChanged();
+            }
+        }
+
 
         /// <summary>
         /// 当前窗体显示状态
@@ -64,7 +80,7 @@ namespace Searcher.ViewModels
         private void InitCommand()
         {
             WindowControlCommand = new DelegateCommand<string>(WindowControl);
-            SearchCommand = new DelegateCommand(StartSearch);
+            SearchCommand = new DelegateCommand(StartSearch, CanStartSearch).ObservesCanExecute(()=>CanSearch);
         }
 
         
@@ -91,6 +107,11 @@ namespace Searcher.ViewModels
             }
         }
 
+        private bool CanStartSearch()
+        {
+            return CanSearch;
+        }
+
         /// <summary>
         /// 开始检索
         /// </summary>
@@ -100,7 +121,11 @@ namespace Searcher.ViewModels
             {
                 return;
             }
-
+            CanSearch = false;
+            Task.Run(() =>
+            {
+                SearchExecutorInstance.StartSearch(SearchInput);
+            }).ContinueWith((t)=> { CanSearch = true; });
             
         }
     }

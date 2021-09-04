@@ -45,6 +45,31 @@
                         Content="&#xe67d;搜索"/>
             </Grid>
             <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <DockPanel Grid.Row="0" Margin="3,0,0,5">
+                    <Label Foreground="{DynamicResource TForeground}" HorizontalAlignment="Right" Padding="0"
+                           HorizontalContentAlignment="Right" VerticalAlignment="Center" Width="60" Content="进度："/>
+                    <ProgressBar   Height="50" Value="{Binding SearchExecutorInstance.SearchProgress.SearchProgress}"/>
+               </DockPanel>
+                <ItemsControl Grid.Row="1" ItemsSource="{Binding SearchExecutorInstance.SearchResults}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Background="{DynamicResource TForeBackground}"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>                            
+                            <DockPanel LastChildFill="False" Margin="5" TextBlock.Foreground="{DynamicResource TForeground}">
+                                <TextBlock DockPanel.Dock="Left" Text="{Binding FileName}" ToolTip="{Binding FileFullPath}"/>
+                                <Button DockPanel.Dock="Right" ToolTip="打开文件所在位置" Style="{DynamicResource TransparentButton_1}" Width="25" Height="25"
+                                        Content="&#xe746;"/>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </Grid>
         </Grid>
 

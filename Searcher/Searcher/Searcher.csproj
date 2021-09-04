@@ -57,8 +57,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Core\Searcher\BaseSearcher.cs" />
+    <Compile Include="Core\Searcher\MFTScanner.cs" />
+    <Compile Include="Core\Searcher\TxtSearcher.cs" />
+    <Compile Include="Core\Searcher\WordSearcher.cs" />
     <Compile Include="Core\SearchExecutor.cs" />
-    <Compile Include="Models\MainWindowModel.cs" />
+    <Compile Include="Models\SearchProgressModel.cs" />
+    <Compile Include="Models\SearchResultModel.cs" />
     <Compile Include="ViewModels\UCViewMainViewModel.cs" />
     <Compile Include="Views\UCViewMain.xaml.cs">
       <DependentUpon>UCViewMain.xaml</DependentUpon>
@@ -68,6 +72,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Asset\Styles\InputBoxStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Asset\Styles\ProgressBarStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

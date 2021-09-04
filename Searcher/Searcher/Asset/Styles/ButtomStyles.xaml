@@ -27,6 +27,25 @@
                 </Setter>
             </Style>
 
+            <Style x:Key="TransparentButton_1" TargetType="{x:Type Button}" BasedOn="{StaticResource DefauleButton}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="_border" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" 
+                                    BorderThickness="0.5" CornerRadius="5">
+                                <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" TargetName="_border" Value="{DynamicResource FocuseColor}"/>
+                                    <Setter Property="BorderBrush" TargetName="_border" Value="{DynamicResource BorderColor}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
             <Style x:Key="PrimaryButton" TargetType="{x:Type Button}" BasedOn="{StaticResource DefauleButton}">
                 <!--<Setter Property="Background" Value="{DynamicResource FocuseColor}"/>-->
                 <Setter Property="Template">
