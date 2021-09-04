@@ -2,6 +2,6 @@
 
 1. 主界面
 
-   ![avatar](.\imgs\1.PNG)
+   ![image](https://cdn.jsdelivr.net/gh/1Joy/Searcher@main/imgs/1.jpg)
 
 2. 
