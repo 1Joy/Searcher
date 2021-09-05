@@ -3,6 +3,7 @@ using Prism.Mvvm;
 using Searcher.Core;
 using Searcher.Models;
 using System;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -14,6 +15,19 @@ namespace Searcher.ViewModels
         public DelegateCommand SearchCommand { get; set; }
 
         public SearchExecutor SearchExecutorInstance { get; set; } = SearchExecutor.SearchExecutorInstance;
+
+        /// <summary>
+        /// 程序集版本
+        /// </summary>
+        private string _version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        public string Version
+        {
+            get { return _version; }
+            set { _version = value;
+                RaisePropertyChanged();
+            }
+        }
+
 
         /// <summary>
         /// 搜索的内容

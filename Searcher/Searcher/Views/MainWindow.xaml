@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="Searcher" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" WindowState="{Binding CurrentWindowState}">
+        Title="Searcher" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        AllowsTransparency="True" ResizeMode="CanResizeWithGrip" WindowState="{Binding CurrentWindowState}" MinWidth="150" MinHeight="100">
     <Grid Background="{DynamicResource TBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="32"/>
@@ -41,42 +42,44 @@
                            VerticalAlignment="Center" Text="搜索内容："/>
                 <TextBox Grid.Column="1" Style="{DynamicResource InputBoxWithIcon}" Text="{Binding SearchInput}"
                          Tag="&#xe67d;"/>
-                <Button Grid.Column="3" Style="{DynamicResource PrimaryButton}" Command="{Binding SearchCommand}" 
+                <Button Grid.Column="3" Style="{DynamicResource PrimaryButton}" Command="{Binding SearchCommand}" ToolTip="开始搜索"
                         Content="&#xe67d;搜索"/>
             </Grid>
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="5"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <DockPanel Grid.Row="0" Margin="3,0,0,5">
-                    <Label Foreground="{DynamicResource TForeground}" HorizontalAlignment="Right" Padding="0"
-                           HorizontalContentAlignment="Right" VerticalAlignment="Center" Width="60" Content="进度："/>
-                    <ProgressBar   Height="50" Value="{Binding SearchExecutorInstance.SearchProgress.SearchProgress}"/>
-               </DockPanel>
-                <ItemsControl Grid.Row="1" ItemsSource="{Binding SearchExecutorInstance.SearchResults}">
+                <!--<ProgressBar Style="{DynamicResource LinerProgressBar}" Value="{Binding SearchExecutorInstance.SearchProgress.SearchProgress}" Margin="5"/>-->
+                <ProgressBar Style="{DynamicResource LinerProgressBar}" Value="{Binding SearchExecutorInstance.SearchProgress.SearchProgress}" Margin="0,0,0,3"/>
+
+                <ScrollViewer Grid.Row="1" Style="{DynamicResource ScrollViewer_1}">
+                <ItemsControl ItemsSource="{Binding SearchExecutorInstance.SearchResults}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Background="{DynamicResource TForeBackground}"/>
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
-                        <DataTemplate>                            
-                            <DockPanel LastChildFill="False" Margin="5" TextBlock.Foreground="{DynamicResource TForeground}">
-                                <TextBlock DockPanel.Dock="Left" Text="{Binding FileName}" ToolTip="{Binding FileFullPath}"/>
-                                <Button DockPanel.Dock="Right" ToolTip="打开文件所在位置" Style="{DynamicResource TransparentButton_1}" Width="25" Height="25"
-                                        Content="&#xe746;"/>
-                            </DockPanel>
+                        <DataTemplate>
+                            <Border BorderBrush="{DynamicResource BorderColor1}" BorderThickness="0,0,0,0.5">
+                                <DockPanel LastChildFill="False" Margin="5,3" TextBlock.Foreground="{DynamicResource TForeground}">
+                                    <TextBlock DockPanel.Dock="Left" Text="{Binding FileName}" ToolTip="{Binding FileFullPath}" VerticalAlignment="Center"/>
+                                    <Button DockPanel.Dock="Right" ToolTip="打开文件所在位置" Style="{DynamicResource TransparentButton_1}" Width="25" Height="25"
+                                            Content="&#xe746;"/>
+                                </DockPanel>
+                            </Border>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
+                </ScrollViewer>
             </Grid>
         </Grid>
 
         <Grid Grid.Row="2" Margin="10,0">
             <TextBlock FontFamily="{DynamicResource MyFontFamily}" Foreground="{DynamicResource TForeground}" 
                        VerticalAlignment="Center"
-                       Text="&#xe61b;程序版本："/>
+                       Text="{Binding Path=Version,StringFormat='&#xe61b;程序版本：{0}'}"/>
         </Grid>
     </Grid>
 </Window>

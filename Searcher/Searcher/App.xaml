@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="pack://application:,,,/Searcher;component/Asset/Styles/ButtomStyles.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/Searcher;component/Asset/Styles/InputBoxStyles.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/Searcher;component/Asset/Styles/ProgressBarStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Searcher;component/Asset/Styles/ScrollViewerStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

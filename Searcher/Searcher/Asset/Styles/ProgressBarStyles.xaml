@@ -3,7 +3,33 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Searcher;component/Asset/Styles/ThemeStyles.xaml"/>
         <ResourceDictionary>
-            
+            <Style x:Key="LinerProgressBar" TargetType="{x:Type ProgressBar}">
+                <Setter Property="Background" Value="{DynamicResource TForeBackground}"/>
+                <Setter Property="Maximum" Value="100"/>
+                <Setter Property="Foreground" Value="{DynamicResource TPrimaryColor}"/>
+                <Setter Property="IsTabStop" Value="True"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ProgressBar">
+                            <Grid x:Name="_root">
+                                <Border x:Name="PART_Track" Background="{TemplateBinding Background}" CornerRadius="5" SnapsToDevicePixels="True"
+                                        Height="{TemplateBinding Height}"/>
+                                <Border x:Name="PART_Indicator" HorizontalAlignment="Left" Background="{TemplateBinding Foreground}" CornerRadius="5"
+                                        SnapsToDevicePixels="True" Height="{TemplateBinding Height}"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Orientation" Value="Vertical">
+                                    <Setter Property="LayoutTransform" TargetName="_root" >
+                                        <Setter.Value>
+                                            <RotateTransform Angle="-90" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
