@@ -16,6 +16,7 @@ namespace Searcher.Core
     /// </summary>
     public class SearchExecutor
     {
+        private readonly static object Locker = new object();
         public static SearchExecutor SearchExecutorInstance = new SearchExecutor();
         private List<BaseSearcher> _searchers;
         /// <summary>
@@ -37,6 +38,36 @@ namespace Searcher.Core
         private SearchExecutor()
         {
             CreateSearcher();
+        }
+
+        /// <summary>
+        /// 开始执行检索
+        /// </summary>
+        public void StartSearch(string targetStr, SearchProgressModel searchProgressModel)
+        {
+            Reset();
+            var mft = new MFTScanner();
+            SearchProgress = searchProgressModel;
+            List<string> fileFullPaths = new List<string>();
+
+            //遍历磁盘,获取文件名
+            foreach (var item in DriveInfo.GetDrives().Where(drive => drive.DriveType == DriveType.Fixed))
+            {
+                fileFullPaths.AddRange(mft.EnumerateFiles(item.Name, _searchFileSuffixs).ToList());
+            }
+            SearchProgress.TotalFileCount = fileFullPaths.Count;
+            Parallel.ForEach(_searchers, search =>
+            {
+                search.StartSearch(targetStr, fileFullPaths);
+            });
+        }
+
+        private void Reset()
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                SearchResults?.Clear();
+            });
         }
 
         /// <summary>
@@ -65,27 +96,7 @@ namespace Searcher.Core
             _searchFileSuffixs = tempSuffix.ToArray();
         }
 
-        /// <summary>
-        /// 开始执行检索
-        /// </summary>
-        public void StartSearch(string targetStr)
-        {
-            var mft = new MFTScanner();
-            SearchProgress = new SearchProgressModel();
-            List<string> fileFullPaths = new List<string>();
-
-            //遍历磁盘,获取文件名
-            foreach (var item in DriveInfo.GetDrives().Where(drive => drive.DriveType == DriveType.Fixed))
-            {                
-                fileFullPaths.AddRange(mft.EnumerateFiles(item.Name, _searchFileSuffixs).ToList());
-            }
-            SearchProgress.TotalFileCount = fileFullPaths.Count;
-            Parallel.ForEach(_searchers, search =>
-            {
-                search.StartSearch(targetStr, fileFullPaths);
-            });
-        }
-
+        
         /// <summary>
         /// 将找到的结果文件，添加到记录
         /// </summary>
@@ -106,7 +117,10 @@ namespace Searcher.Core
         /// <param name="args"></param>
         private void UpdateSearchProgress(object s,EventArgs args)
         {
-            SearchProgress.SearchedFileCount++;
+            lock (Locker)
+            {
+                SearchProgress.SearchedFileCount++;
+            }
         }
     }
 }

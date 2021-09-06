@@ -51,7 +51,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <!--<ProgressBar Style="{DynamicResource LinerProgressBar}" Value="{Binding SearchExecutorInstance.SearchProgress.SearchProgress}" Margin="5"/>-->
-                <ProgressBar Style="{DynamicResource LinerProgressBar}" Value="{Binding SearchExecutorInstance.SearchProgress.SearchProgress}" Margin="0,0,0,3"/>
+                <ProgressBar Style="{DynamicResource LinerProgressBar}" Value="{Binding SearchProgress.SearchProgress}" Margin="0,0,0,3"/>
 
                 <ScrollViewer Grid.Row="1" Style="{DynamicResource ScrollViewer_1}">
                 <ItemsControl ItemsSource="{Binding SearchExecutorInstance.SearchResults}">
@@ -66,7 +66,8 @@
                                 <DockPanel LastChildFill="False" Margin="5,3" TextBlock.Foreground="{DynamicResource TForeground}">
                                     <TextBlock DockPanel.Dock="Left" Text="{Binding FileName}" ToolTip="{Binding FileFullPath}" VerticalAlignment="Center"/>
                                     <Button DockPanel.Dock="Right" ToolTip="打开文件所在位置" Style="{DynamicResource TransparentButton_1}" Width="25" Height="25"
-                                            Content="&#xe746;"/>
+                                            Content="&#xe746;" CommandParameter="{Binding FileFullPath}"
+                                            Command="{Binding RelativeSource={RelativeSource AncestorType=Window},Path=DataContext.OpenFloderCommand}"/>
                                 </DockPanel>
                             </Border>
                         </DataTemplate>
@@ -76,10 +77,19 @@
             </Grid>
         </Grid>
 
-        <Grid Grid.Row="2" Margin="10,0">
-            <TextBlock FontFamily="{DynamicResource MyFontFamily}" Foreground="{DynamicResource TForeground}" 
-                       VerticalAlignment="Center"
-                       Text="{Binding Path=Version,StringFormat='&#xe61b;程序版本：{0}'}"/>
-        </Grid>
+        <DockPanel Grid.Row="2" Margin="10,0" LastChildFill="False" TextBlock.Foreground="{DynamicResource TForeground}">
+            <TextBlock DockPanel.Dock="Left" FontFamily="{DynamicResource MyFontFamily}"
+                       VerticalAlignment="Center" Text="{Binding Path=Version,StringFormat='&#xe61b;程序版本：{0}'}"/>
+
+            <TextBlock DockPanel.Dock="Right" VerticalAlignment="Center" Visibility="{Binding ShowResultMsg}">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="共搜索{0}个文件，找到{1}个文件，耗时{2}秒">
+                        <Binding Path="SearchProgress.TotalFileCount"/>
+                        <Binding Path="SearchExecutorInstance.SearchResults.Count"/>
+                        <Binding Path="SearchProgress.UseTime"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+        </DockPanel>
     </Grid>
 </Window>

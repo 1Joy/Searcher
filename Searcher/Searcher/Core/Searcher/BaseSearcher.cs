@@ -44,13 +44,14 @@ namespace Searcher.Core.Searcher
             fileNames = FilterFileSuffix(fileNames);
             foreach (var item in fileNames)
             {
+                FindNextEvent?.Invoke(this, EventArgs.Empty);
                 if (!File.Exists(item))
                     continue;
                 if(SearchByTargetStr(targetStr, item))
                 {
                     ReportFindFileEvent?.Invoke(item);
                 }
-                FindNextEvent?.Invoke(this,EventArgs.Empty);
+                
             }
         }
 

@@ -3,6 +3,7 @@ using Prism.Mvvm;
 using Searcher.Core;
 using Searcher.Models;
 using System;
+using System.Diagnostics;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,9 +13,19 @@ namespace Searcher.ViewModels
     public class MainWindowViewModel : BindableBase
     {
         public DelegateCommand<string> WindowControlCommand { get; set; }
+        public DelegateCommand<string> OpenFloderCommand { get; set; }
         public DelegateCommand SearchCommand { get; set; }
 
-        public SearchExecutor SearchExecutorInstance { get; set; } = SearchExecutor.SearchExecutorInstance;
+        private SearchExecutor _searchExecutorInstance = SearchExecutor.SearchExecutorInstance;
+        public SearchExecutor SearchExecutorInstance
+        {
+            get => _searchExecutorInstance; 
+            set
+            {
+                _searchExecutorInstance = value;
+                RaisePropertyChanged();
+            }
+        }
 
         /// <summary>
         /// 程序集版本
@@ -80,6 +91,32 @@ namespace Searcher.ViewModels
             }
         }
 
+        /// <summary>
+        /// 是否显示结果总体描述
+        /// </summary>
+        private Visibility _showResultMsg = Visibility.Hidden;
+        public Visibility ShowResultMsg
+        {
+            get { return _showResultMsg; }
+            set { _showResultMsg = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// 搜索进度
+        /// </summary>
+        private SearchProgressModel _searchProgress;
+        public SearchProgressModel SearchProgress
+        {
+            get => _searchProgress; 
+            set
+            {
+                _searchProgress = value;
+                RaisePropertyChanged();
+            }
+        }
+
 
 
 
@@ -94,6 +131,7 @@ namespace Searcher.ViewModels
         private void InitCommand()
         {
             WindowControlCommand = new DelegateCommand<string>(WindowControl);
+            OpenFloderCommand = new DelegateCommand<string>(OpenFloder);
             SearchCommand = new DelegateCommand(StartSearch, CanStartSearch).ObservesCanExecute(()=>CanSearch);
         }
 
@@ -136,11 +174,28 @@ namespace Searcher.ViewModels
                 return;
             }
             CanSearch = false;
+            var sp = new Stopwatch();
             Task.Run(() =>
             {
-                SearchExecutorInstance.StartSearch(SearchInput);
-            }).ContinueWith((t)=> { CanSearch = true; });
+                sp.Start();
+                SearchProgress = new SearchProgressModel();
+                SearchExecutorInstance.StartSearch(SearchInput, SearchProgress);
+            }).ContinueWith((t)=> {
+                sp.Stop();
+                CanSearch = true;
+                ShowResultMsg = Visibility.Visible;
+                SearchProgress.UseTime = sp.ElapsedMilliseconds/1000;
+            });
             
+        }
+
+        /// <summary>
+        /// 打开文件路径位置
+        /// </summary>
+        /// <param name="floderPath">文件路径</param>
+        private void OpenFloder(string floderPath)
+        {
+            Process.Start("Explorer", "/select," + floderPath);
         }
     }
 }

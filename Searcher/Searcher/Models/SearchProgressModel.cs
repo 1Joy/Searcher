@@ -1,6 +1,7 @@
 ﻿using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,8 @@ namespace Searcher.Models
             set
             {
                 _searchedFileCount = value;
-                //SearchProgress = SearchedFileCount / (double)TotalFileCount;
+                if(SearchedFileCount/100==0||SearchedFileCount==TotalFileCount)
+                    SearchProgress = SearchedFileCount / (double)TotalFileCount;
             }
         }
 
@@ -49,9 +51,23 @@ namespace Searcher.Models
             get { return _searchProgress; }
             set
             {
+
                 _searchProgress = value;
                 RaisePropertyChanged();
             }
         }
+
+        /// <summary>
+        /// 耗时
+        /// </summary>
+        private double _useTime;
+        public double UseTime
+        {
+            get { return _useTime; }
+            set { _useTime = value;
+                RaisePropertyChanged();
+            }
+        }
+
     }
 }
