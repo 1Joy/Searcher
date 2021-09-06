@@ -195,7 +195,7 @@ namespace Searcher.ViewModels
         /// <param name="floderPath">文件路径</param>
         private void OpenFloder(string floderPath)
         {
-            //q
+            //q0
             Process.Start("Explorer", "/select," + floderPath);
         }
     }
