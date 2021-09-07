@@ -13,9 +13,9 @@ namespace Searcher.Core.Searcher
     public abstract class BaseSearcher
     {
         public delegate void ReportFindFileDelegate(string fileFullPath);
-        public ReportFindFileDelegate ReportFindFileEvent;
+        public static ReportFindFileDelegate ReportFindFileEvent;
 
-        public EventHandler FindNextEvent;
+        public static EventHandler FindNextEvent;
 
         /// <summary>
         /// 检索类型
@@ -54,6 +54,31 @@ namespace Searcher.Core.Searcher
                 
             }
         }
+
+        /// <summary>
+        /// 搜索文件名和后缀
+        /// </summary>
+        /// <param name="targetStr">关键字</param>
+        /// <param name="fileFullPaths">文件路径集合</param>
+        public static List<string> SearchFileAndSuffix(string targetStr,List<string> fileFullPaths)
+        {
+            List<string> temp = new List<string>();
+            foreach (var path in fileFullPaths)
+            {
+                FindNextEvent?.Invoke(null, EventArgs.Empty);
+                if (Path.GetFileName(path).Contains(targetStr))
+                {                    
+                    ReportFindFileEvent?.Invoke(path);
+                }
+                else
+                {
+                    temp.Add(path);
+                }
+            }
+            return temp;
+        }
+
+        
 
         /// <summary>
         /// 过滤目录

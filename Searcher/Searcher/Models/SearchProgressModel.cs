@@ -51,9 +51,9 @@ namespace Searcher.Models
             get { return _searchProgress; }
             set
             {
-
                 _searchProgress = value;
                 RaisePropertyChanged();
+                Debug.WriteLine($"{value}-{SearchedFileCount}");
             }
         }
 

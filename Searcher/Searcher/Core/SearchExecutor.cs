@@ -53,9 +53,13 @@ namespace Searcher.Core
             //遍历磁盘,获取文件名
             foreach (var item in DriveInfo.GetDrives().Where(drive => drive.DriveType == DriveType.Fixed))
             {
-                fileFullPaths.AddRange(mft.EnumerateFiles(item.Name, _searchFileSuffixs).ToList());
+                fileFullPaths.AddRange(mft.EnumerateFiles(item.Name).ToList());
             }
             SearchProgress.TotalFileCount = fileFullPaths.Count;
+
+            //对全磁盘的文件名称进行关键字搜索(文件名和文件后缀)
+            fileFullPaths = BaseSearcher.SearchFileAndSuffix(targetStr, fileFullPaths);
+            //对余下的内容进行文件内容搜索
             Parallel.ForEach(_searchers, search =>
             {
                 search.StartSearch(targetStr, fileFullPaths);
@@ -74,14 +78,11 @@ namespace Searcher.Core
         /// 创建检索对象
         /// </summary>
         private void CreateSearcher()
-        {            
+        { 
+            BaseSearcher.ReportFindFileEvent += AddResult;
+            BaseSearcher.FindNextEvent += UpdateSearchProgress;
             var txtSearcher = new TxtSearcher();
             var wordSearcher = new WordSearcher();
-            txtSearcher.ReportFindFileEvent += AddResult;
-            wordSearcher.ReportFindFileEvent += AddResult;
-
-            txtSearcher.FindNextEvent += UpdateSearchProgress;
-            wordSearcher.FindNextEvent += UpdateSearchProgress;
 
             _searchers = new List<BaseSearcher>
             {
