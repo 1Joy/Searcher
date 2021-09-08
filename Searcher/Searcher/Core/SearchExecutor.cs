@@ -64,6 +64,8 @@ namespace Searcher.Core
             {
                 search.StartSearch(targetStr, fileFullPaths);
             });
+
+            SearchProgress.SearchedFileCount = SearchProgress.TotalFileCount;
         }
 
         private void Reset()
@@ -87,7 +89,7 @@ namespace Searcher.Core
             _searchers = new List<BaseSearcher>
             {
                 txtSearcher,
-                //wordSearcher
+                wordSearcher
             };
             List<string> tempSuffix = new List<string> ();
             foreach (var item in _searchers)

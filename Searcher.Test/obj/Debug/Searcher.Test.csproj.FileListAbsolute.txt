@@ -26,3 +26,9 @@ D:\Code\JoyCode\Searcher\Searcher.Test\bin\Debug\Prism.DryIoc.Wpf.pdb
 D:\Code\JoyCode\Searcher\Searcher.Test\bin\Debug\Prism.pdb
 D:\Code\JoyCode\Searcher\Searcher.Test\bin\Debug\Prism.Wpf.pdb
 D:\Code\JoyCode\Searcher\Searcher.Test\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\Code\JoyCode\Searcher\Searcher.Test\bin\Debug\NPOI.OOXML.dll
+D:\Code\JoyCode\Searcher\Searcher.Test\bin\Debug\NPOI.dll
+D:\Code\JoyCode\Searcher\Searcher.Test\bin\Debug\NPOI.OpenXmlFormats.dll
+D:\Code\JoyCode\Searcher\Searcher.Test\bin\Debug\NPOI.OpenXml4Net.dll
+D:\Code\JoyCode\Searcher\Searcher.Test\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\Code\JoyCode\Searcher\Searcher.Test\bin\Debug\NPOI.ScratchPad.HWPF.dll

@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="MFTTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearcherTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

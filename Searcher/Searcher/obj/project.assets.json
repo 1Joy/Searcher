@@ -29,6 +29,37 @@
           "lib/net45/Microsoft.Xaml.Behaviors.dll": {}
         }
       },
+      "NPOI/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpZipLib": "0.86.0"
+        },
+        "compile": {
+          "lib/net40/NPOI.OOXML.dll": {},
+          "lib/net40/NPOI.OpenXml4Net.dll": {},
+          "lib/net40/NPOI.OpenXmlFormats.dll": {},
+          "lib/net40/NPOI.dll": {}
+        },
+        "runtime": {
+          "lib/net40/NPOI.OOXML.dll": {},
+          "lib/net40/NPOI.OpenXml4Net.dll": {},
+          "lib/net40/NPOI.OpenXmlFormats.dll": {},
+          "lib/net40/NPOI.dll": {}
+        }
+      },
+      "NPOI.HWPF/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "NPOI": "2.3.0",
+          "SharpZipLib": "0.86.0"
+        },
+        "compile": {
+          "lib/net40/NPOI.ScratchPad.HWPF.dll": {}
+        },
+        "runtime": {
+          "lib/net40/NPOI.ScratchPad.HWPF.dll": {}
+        }
+      },
       "Prism.Core/8.0.0.1909": {
         "type": "package",
         "compile": {
@@ -65,6 +96,15 @@
         },
         "runtime": {
           "lib/net47/Prism.Wpf.dll": {}
+        }
+      },
+      "SharpZipLib/0.86.0": {
+        "type": "package",
+        "compile": {
+          "lib/20/ICSharpCode.SharpZipLib.dll": {}
+        },
+        "runtime": {
+          "lib/20/ICSharpCode.SharpZipLib.dll": {}
         }
       }
     },
@@ -96,6 +136,37 @@
           "lib/net45/Microsoft.Xaml.Behaviors.dll": {}
         }
       },
+      "NPOI/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpZipLib": "0.86.0"
+        },
+        "compile": {
+          "lib/net40/NPOI.OOXML.dll": {},
+          "lib/net40/NPOI.OpenXml4Net.dll": {},
+          "lib/net40/NPOI.OpenXmlFormats.dll": {},
+          "lib/net40/NPOI.dll": {}
+        },
+        "runtime": {
+          "lib/net40/NPOI.OOXML.dll": {},
+          "lib/net40/NPOI.OpenXml4Net.dll": {},
+          "lib/net40/NPOI.OpenXmlFormats.dll": {},
+          "lib/net40/NPOI.dll": {}
+        }
+      },
+      "NPOI.HWPF/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "NPOI": "2.3.0",
+          "SharpZipLib": "0.86.0"
+        },
+        "compile": {
+          "lib/net40/NPOI.ScratchPad.HWPF.dll": {}
+        },
+        "runtime": {
+          "lib/net40/NPOI.ScratchPad.HWPF.dll": {}
+        }
+      },
       "Prism.Core/8.0.0.1909": {
         "type": "package",
         "compile": {
@@ -132,6 +203,15 @@
         },
         "runtime": {
           "lib/net47/Prism.Wpf.dll": {}
+        }
+      },
+      "SharpZipLib/0.86.0": {
+        "type": "package",
+        "compile": {
+          "lib/20/ICSharpCode.SharpZipLib.dll": {}
+        },
+        "runtime": {
+          "lib/20/ICSharpCode.SharpZipLib.dll": {}
         }
       }
     },
@@ -163,6 +243,37 @@
           "lib/net45/Microsoft.Xaml.Behaviors.dll": {}
         }
       },
+      "NPOI/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpZipLib": "0.86.0"
+        },
+        "compile": {
+          "lib/net40/NPOI.OOXML.dll": {},
+          "lib/net40/NPOI.OpenXml4Net.dll": {},
+          "lib/net40/NPOI.OpenXmlFormats.dll": {},
+          "lib/net40/NPOI.dll": {}
+        },
+        "runtime": {
+          "lib/net40/NPOI.OOXML.dll": {},
+          "lib/net40/NPOI.OpenXml4Net.dll": {},
+          "lib/net40/NPOI.OpenXmlFormats.dll": {},
+          "lib/net40/NPOI.dll": {}
+        }
+      },
+      "NPOI.HWPF/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "NPOI": "2.3.0",
+          "SharpZipLib": "0.86.0"
+        },
+        "compile": {
+          "lib/net40/NPOI.ScratchPad.HWPF.dll": {}
+        },
+        "runtime": {
+          "lib/net40/NPOI.ScratchPad.HWPF.dll": {}
+        }
+      },
       "Prism.Core/8.0.0.1909": {
         "type": "package",
         "compile": {
@@ -199,6 +310,15 @@
         },
         "runtime": {
           "lib/net47/Prism.Wpf.dll": {}
+        }
+      },
+      "SharpZipLib/0.86.0": {
+        "type": "package",
+        "compile": {
+          "lib/20/ICSharpCode.SharpZipLib.dll": {}
+        },
+        "runtime": {
+          "lib/20/ICSharpCode.SharpZipLib.dll": {}
         }
       }
     },
@@ -230,6 +350,37 @@
           "lib/net45/Microsoft.Xaml.Behaviors.dll": {}
         }
       },
+      "NPOI/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpZipLib": "0.86.0"
+        },
+        "compile": {
+          "lib/net40/NPOI.OOXML.dll": {},
+          "lib/net40/NPOI.OpenXml4Net.dll": {},
+          "lib/net40/NPOI.OpenXmlFormats.dll": {},
+          "lib/net40/NPOI.dll": {}
+        },
+        "runtime": {
+          "lib/net40/NPOI.OOXML.dll": {},
+          "lib/net40/NPOI.OpenXml4Net.dll": {},
+          "lib/net40/NPOI.OpenXmlFormats.dll": {},
+          "lib/net40/NPOI.dll": {}
+        }
+      },
+      "NPOI.HWPF/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "NPOI": "2.3.0",
+          "SharpZipLib": "0.86.0"
+        },
+        "compile": {
+          "lib/net40/NPOI.ScratchPad.HWPF.dll": {}
+        },
+        "runtime": {
+          "lib/net40/NPOI.ScratchPad.HWPF.dll": {}
+        }
+      },
       "Prism.Core/8.0.0.1909": {
         "type": "package",
         "compile": {
@@ -266,6 +417,15 @@
         },
         "runtime": {
           "lib/net47/Prism.Wpf.dll": {}
+        }
+      },
+      "SharpZipLib/0.86.0": {
+        "type": "package",
+        "compile": {
+          "lib/20/ICSharpCode.SharpZipLib.dll": {}
+        },
+        "runtime": {
+          "lib/20/ICSharpCode.SharpZipLib.dll": {}
         }
       }
     }
@@ -321,6 +481,52 @@
         "microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
         "microsoft.xaml.behaviors.wpf.nuspec",
         "tools/Install.ps1"
+      ]
+    },
+    "NPOI/2.3.0": {
+      "sha512": "5Z4k96+n17oKdKvoEYxTzkphkPgnUTiNJCPCxDibrm+v0w1LE0xtfinHJaXJrr2tDX2821azwbODSDU3rJ7Tzg==",
+      "type": "package",
+      "path": "npoi/2.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "Read Me.txt",
+        "Release Notes.txt",
+        "lib/net20/NPOI.OOXML.dll",
+        "lib/net20/NPOI.OpenXml4Net.dll",
+        "lib/net20/NPOI.OpenXmlFormats.dll",
+        "lib/net20/NPOI.XML",
+        "lib/net20/NPOI.dll",
+        "lib/net40/NPOI.OOXML.dll",
+        "lib/net40/NPOI.OpenXml4Net.dll",
+        "lib/net40/NPOI.OpenXmlFormats.dll",
+        "lib/net40/NPOI.XML",
+        "lib/net40/NPOI.dll",
+        "logo/120_120.jpg",
+        "logo/240_240.png",
+        "logo/32_32.jpg",
+        "logo/60_60.jpg",
+        "npoi.2.3.0.nupkg.sha512",
+        "npoi.nuspec"
+      ]
+    },
+    "NPOI.HWPF/2.3.0": {
+      "sha512": "nJY+izW91dAJdhnu1I/MbGzIOG1zBGbAvOJeXbrTPiaDz1VG9/sY4K2tMxw5SmuA+nsAAitrSDzWTlij8Adtlw==",
+      "type": "package",
+      "path": "npoi.hwpf/2.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net20/NPOI.ScratchPad.HWPF.dll",
+        "lib/net40/NPOI.ScratchPad.HWPF.dll",
+        "logo/120_120.jpg",
+        "logo/240_240.png",
+        "logo/32_32.jpg",
+        "logo/60_60.jpg",
+        "npoi.hwpf.2.3.0.nupkg.sha512",
+        "npoi.hwpf.nuspec"
       ]
     },
     "Prism.Core/8.0.0.1909": {
@@ -394,10 +600,26 @@
         "prism.wpf.8.0.0.1909.nupkg.sha512",
         "prism.wpf.nuspec"
       ]
+    },
+    "SharpZipLib/0.86.0": {
+      "sha512": "5DbS1SlKLMi+WG00Cm0ueYf2oyXJrowETQk8nx96rmdjTuHsA3laPykGV7Sxi0R5Xxfx0Kh/EfacAZ1f6M7y/g==",
+      "type": "package",
+      "path": "sharpziplib/0.86.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/11/ICSharpCode.SharpZipLib.dll",
+        "lib/20/ICSharpCode.SharpZipLib.dll",
+        "lib/SL3/SharpZipLib.Silverlight3.dll",
+        "lib/SL4/SharpZipLib.Silverlight4.dll",
+        "sharpziplib.0.86.0.nupkg.sha512",
+        "sharpziplib.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.7.2": [
+      "NPOI.HWPF >= 2.3.0",
       "Prism.DryIoc >= 8.0.0.1909"
     ]
   },
@@ -440,6 +662,10 @@
     "frameworks": {
       "net472": {
         "dependencies": {
+          "NPOI.HWPF": {
+            "target": "Package",
+            "version": "[2.3.0, )"
+          },
           "Prism.DryIoc": {
             "target": "Package",
             "version": "[8.0.0.1909, )"

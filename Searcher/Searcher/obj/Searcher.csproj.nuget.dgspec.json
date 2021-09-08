@@ -39,6 +39,10 @@
       "frameworks": {
         "net472": {
           "dependencies": {
+            "NPOI.HWPF": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
             "Prism.DryIoc": {
               "target": "Package",
               "version": "[8.0.0.1909, )"

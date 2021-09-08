@@ -1,4 +1,7 @@
-﻿using System;
+﻿using NPOI.HWPF;
+using NPOI.POIFS.FileSystem;
+using NPOI.XWPF.UserModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +28,47 @@ namespace Searcher.Core.Searcher
         {
             if (base.SearchByTargetStr(targetStr, fileFullPath))
                 return true;
+            using(FileStream fs = new FileStream(fileFullPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            {
+                if (fs.Length == 0)
+                    return false;
+                if (Path.GetExtension(fileFullPath) == ".docx")
+                    return SearchDocx(targetStr, fs);
+                else
+                    return SearchDoc(targetStr, fs);
+            }
+        }
+
+        /// <summary>
+        /// 搜索docx文档
+        /// </summary>
+        /// <param name="fileFullPath"></param>
+        private bool SearchDocx(string targetStr, FileStream fs)
+        {
+            XWPFDocument document = new XWPFDocument(fs);
+            foreach (var paragraph in document.Paragraphs)
+            {
+                if (paragraph.Text.Contains(targetStr))
+                    return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 搜索doc文档
+        /// </summary>
+        /// <param name="targetStr"></param>
+        /// <param name="fileFullPath"></param>
+        /// <returns></returns>
+        private bool SearchDoc(string targetStr, FileStream fs)
+        {
+            POIFSFileSystem pOIFS = new POIFSFileSystem(fs);
+            HWPFDocument document = new HWPFDocument(pOIFS);
+            for (int i = 0; i < document.GetRange().NumParagraphs; i++)
+            {
+                if (document.GetRange().GetParagraph(i).Text.Contains(targetStr))
+                    return true;
+            }
             return false;
         }
     }

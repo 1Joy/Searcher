@@ -1,14 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "S9zJPY4l6uDa+vUM939bD3TY93NBdz9IwqbRtUJIY1pNOfxzwfAIwsUXEtmlHhcofsPLNicHVM2gcwLDMDSkAw==",
+  "dgSpecHash": "Q6Uev/ctUYpdTRsd9gET9H+EoTVWTZJabfhk7dSwTC4ntqnlSJuUI7/EeTRYsA+W0o9bQpY0eCHB0HlKnn0RlQ==",
   "success": true,
   "projectFilePath": "D:\\Code\\JoyCode\\Searcher\\Searcher\\Searcher\\Searcher.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\JOY\\.nuget\\packages\\dryioc.dll\\4.5.0\\dryioc.dll.4.5.0.nupkg.sha512",
     "C:\\Users\\JOY\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
+    "C:\\Users\\JOY\\.nuget\\packages\\npoi\\2.3.0\\npoi.2.3.0.nupkg.sha512",
+    "C:\\Users\\JOY\\.nuget\\packages\\npoi.hwpf\\2.3.0\\npoi.hwpf.2.3.0.nupkg.sha512",
     "C:\\Users\\JOY\\.nuget\\packages\\prism.core\\8.0.0.1909\\prism.core.8.0.0.1909.nupkg.sha512",
     "C:\\Users\\JOY\\.nuget\\packages\\prism.dryioc\\8.0.0.1909\\prism.dryioc.8.0.0.1909.nupkg.sha512",
-    "C:\\Users\\JOY\\.nuget\\packages\\prism.wpf\\8.0.0.1909\\prism.wpf.8.0.0.1909.nupkg.sha512"
+    "C:\\Users\\JOY\\.nuget\\packages\\prism.wpf\\8.0.0.1909\\prism.wpf.8.0.0.1909.nupkg.sha512",
+    "C:\\Users\\JOY\\.nuget\\packages\\sharpziplib\\0.86.0\\sharpziplib.0.86.0.nupkg.sha512"
   ],
   "logs": []
 }

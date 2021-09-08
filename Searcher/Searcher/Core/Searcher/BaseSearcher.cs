@@ -27,7 +27,7 @@ namespace Searcher.Core.Searcher
         /// </summary>
         public string FileSuffixs { get; protected set; }
 
-        protected BaseSearcher(string tag,string suffixs)
+        protected BaseSearcher(string tag, string suffixs)
         {
             Tag = tag;
             FileSuffixs = suffixs;
@@ -47,11 +47,14 @@ namespace Searcher.Core.Searcher
                 FindNextEvent?.Invoke(this, EventArgs.Empty);
                 if (!File.Exists(item))
                     continue;
-                if(SearchByTargetStr(targetStr, item))
+                FileInfo fileInfo = new FileInfo(item);
+                if (fileInfo.Attributes != FileAttributes.Normal)
+                    continue;
+                if (SearchByTargetStr(targetStr, item))
                 {
                     ReportFindFileEvent?.Invoke(item);
                 }
-                
+
             }
         }
 
@@ -60,14 +63,14 @@ namespace Searcher.Core.Searcher
         /// </summary>
         /// <param name="targetStr">关键字</param>
         /// <param name="fileFullPaths">文件路径集合</param>
-        public static List<string> SearchFileAndSuffix(string targetStr,List<string> fileFullPaths)
+        public static List<string> SearchFileAndSuffix(string targetStr, List<string> fileFullPaths)
         {
             List<string> temp = new List<string>();
             foreach (var path in fileFullPaths)
             {
                 FindNextEvent?.Invoke(null, EventArgs.Empty);
                 if (Path.GetFileName(path).Contains(targetStr))
-                {                    
+                {
                     ReportFindFileEvent?.Invoke(path);
                 }
                 else
@@ -78,7 +81,7 @@ namespace Searcher.Core.Searcher
             return temp;
         }
 
-        
+
 
         /// <summary>
         /// 过滤目录
@@ -94,7 +97,7 @@ namespace Searcher.Core.Searcher
         /// <param name="fileFullPath">文件名</param>
         /// <returns>true：搜索到了关键字</returns>
         protected virtual bool SearchByTargetStr(string targetStr, string fileFullPath)
-        {            
+        {
             //搜索文件名称里面是否包含关键字
             string name = Path.GetFileName(fileFullPath);
             if (name.Contains(targetStr))

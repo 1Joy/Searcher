@@ -28,5 +28,10 @@ D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Asset\Styles\ThemeStyles.ba
 D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Asset\Styles\ButtomStyles.baml
 D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Asset\Styles\InputBoxStyles.baml
 D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Asset\Styles\ProgressBarStyles.baml
-D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Searcher.csprojAssemblyReference.cache
 D:\Code\JoyCode\Searcher\Searcher\Searcher\obj\Debug\Asset\Styles\ScrollViewerStyles.baml
+D:\Code\JoyCode\Searcher\Searcher\Searcher\bin\Debug\NPOI.OOXML.dll
+D:\Code\JoyCode\Searcher\Searcher\Searcher\bin\Debug\NPOI.OpenXml4Net.dll
+D:\Code\JoyCode\Searcher\Searcher\Searcher\bin\Debug\NPOI.OpenXmlFormats.dll
+D:\Code\JoyCode\Searcher\Searcher\Searcher\bin\Debug\NPOI.dll
+D:\Code\JoyCode\Searcher\Searcher\Searcher\bin\Debug\NPOI.ScratchPad.HWPF.dll
+D:\Code\JoyCode\Searcher\Searcher\Searcher\bin\Debug\ICSharpCode.SharpZipLib.dll
