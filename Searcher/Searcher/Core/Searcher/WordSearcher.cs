@@ -30,6 +30,7 @@ namespace Searcher.Core.Searcher
                 return true;
             using(FileStream fs = new FileStream(fileFullPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
+                ///todo 这里有一个问题就是直接将其他后缀改为目标后缀会读取失败
                 if (fs.Length == 0)
                     return false;
                 if (Path.GetExtension(fileFullPath) == ".docx")

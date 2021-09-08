@@ -23,7 +23,7 @@ namespace Searcher.Core.Searcher
             if (base.SearchByTargetStr(targetStr, fileFullPath))
                 return true;
             //读取文件内容
-            ///todo这里可能有编码问题
+            ///todo 这里可能有编码问题
             using (FileStream fs = new FileStream(fileFullPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 using(StreamReader sr = new StreamReader(fs))
